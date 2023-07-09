@@ -20,7 +20,7 @@ function App() {
           element={<DestinationListPage />}
         />
         <Route
-          path="/destination/:continentName/:countryName/:destinationId"
+          path="/destination/:continentName/:countryName/:destinationName"
           element={<DestinationDetailsPage />}
         />
       </Routes>

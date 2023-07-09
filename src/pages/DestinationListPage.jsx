@@ -25,7 +25,7 @@ export const DestinationListPage = () => {
             key={destination?.id}
             name={destination?.name}
             image={destination?.image}
-            navlink={`/destination/${continentName}/${countryName}/${destination?.id}`}
+            navlink={`/destination/${continentName}/${countryName}/${destination?.name}`}
           />
         ))}
       </div>
