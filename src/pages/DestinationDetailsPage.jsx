@@ -1,8 +1,7 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useData } from "../contexts/DataContext";
 
 export const DestinationDetailsPage = () => {
-  const navigate = useNavigate();
   const { continentName, countryName, destinationName } = useParams();
   const { data } = useData();
 
@@ -56,12 +55,11 @@ export const DestinationDetailsPage = () => {
             <span className="text-[blue] font-semibold">Ticket Price: </span>
             <span className="text-sm">{destination?.ticketPrice}</span>
           </p>
-          <p
-            onClick={() => navigate(destination?.website, { target: "_blank" })}
-            className="font-semibold hover:underline hover:cursor-pointer text-green-700"
-          >
-            website
-          </p>
+          <Link to={destination?.website} target="_blank">
+            <p className="font-semibold hover:underline hover:cursor-pointer text-green-700">
+              website
+            </p>
+          </Link>
         </div>
       </div>
     </div>
