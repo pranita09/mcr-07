@@ -6,29 +6,28 @@ export const DestinationListPage = () => {
   const { continentName, countryName } = useParams();
   const { data } = useData();
 
-  console.log(countryName);
-  console.log(data.continents);
-
   const continent = data?.continents?.find(
     (continent) => continent?.name === continentName
   );
 
-  const country = continent;
-
-  console.log(continent);
+  const country = continent.countries.find(
+    (country) => country.name === countryName
+  );
 
   return (
     <div className="p-4 mt-4 text-center">
-      <h1 className="text-[1.5rem] font-semibold">Welcome to Trip Advisor</h1>
-      <div className="flex items-center justify-center gap-6 py-6">
-        {/* {destinationsData?.destinations.map((country) => (
+      <h1 className="text-[1.5rem] font-semibold">
+        Top Destinations in {countryName} for your next holiday
+      </h1>
+      <div className="flex items-center justify-center gap-6 py-8 flex-wrap">
+        {country?.destinations.map((destination) => (
           <Card
-            key={country?.id}
-            name={country?.name}
-            image={country?.image}
-            navlink={`/destinationsInCountry/${country?.name}`}
+            key={destination?.id}
+            name={destination?.name}
+            image={destination?.image}
+            navlink={`/destination/${continentName}/${countryName}/${destination?.id}`}
           />
-        ))} */}
+        ))}
       </div>
     </div>
   );
