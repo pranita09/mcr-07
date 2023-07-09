@@ -57,7 +57,7 @@ export const DestinationDetailsPage = () => {
             <span className="text-sm">{destination?.ticketPrice}</span>
           </p>
           <p
-            onClick={() => navigate(destination?.website)}
+            onClick={() => navigate(destination?.website, { target: "_blank" })}
             className="font-semibold hover:underline hover:cursor-pointer text-green-700"
           >
             website
